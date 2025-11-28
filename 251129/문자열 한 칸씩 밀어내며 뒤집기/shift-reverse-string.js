@@ -15,8 +15,8 @@ for(let num of order) {
         str = str.slice(-1)+ str.slice(0 , -1)
         console.log(str)
 
-    } else if(num === 3 ){  
-        str = str.split("").reverse()
-        console.log(str.join(""))
+    } else if( num === 3 ){  
+        str = str.split("").reverse().join("")
+        console.log(str)
     }
 }
