@@ -12,7 +12,12 @@ function checkVaild (m,d){
         return "No"
     }
 
-    if( 1 <= m && m <= 12 && 1<= d && d <=31) return "Yes"
+    if(m === 1 || m === 3 || m === 5 || m === 7 || m === 8 || m === 10 || m === 12){
+        if(1 <= d && d<= 31)  return "Yes"
+    } else {            
+        if(1 <= d && d<= 30)  return "Yes"
+    }
+    return "No"
 }
 
 let result = checkVaild(m,d)
