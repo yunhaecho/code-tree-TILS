@@ -11,8 +11,9 @@ function solution (a,b) {
 
     const len = b.length
     for(let i = 0; i<= a.length - len; i++) {
-        let compare = a[i] + a[i+1] + a[i+2]
-        if(compare === b.join("")) return "Yes"
+        let compare = a.slice(i,i+3)
+        if(compare.join("") === b.join("")) return "Yes"
+
     }
     return "No"
     
