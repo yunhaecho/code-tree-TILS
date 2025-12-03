@@ -20,8 +20,8 @@ let arr = input[1].split(" ").map(Number);
 // }
 
 function divide (arr) {
-    for(let num of arr) {
-        if(num % 2 === 0 ) num = num / 2
+    for(let i= 0; i < arr.length; i++) {
+        if(arr[i] % 2 === 0 ) arr[i] = arr[i] / 2
     }
     console.log(arr.join(" "))
 }
