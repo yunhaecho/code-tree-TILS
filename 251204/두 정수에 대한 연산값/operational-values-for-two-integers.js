@@ -7,10 +7,10 @@ function solution(a,b) {
     if(a > b) {
         return [ a + 25, b*2]
     } else if(a < b){
-        return [ a * 2, " " ,b + 25]
+        return [ a * 2, b + 25]
 
     }
 }
 
 const result = solution(a,b)
-console.log(result.join(""))
+console.log(result.join(" "))
