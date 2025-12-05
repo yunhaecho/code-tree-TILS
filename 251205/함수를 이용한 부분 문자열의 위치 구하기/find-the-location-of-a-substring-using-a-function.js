@@ -9,7 +9,7 @@ function solution(text,pattern) {
     if(!text.includes(pattern)) console.log(-1)
 
     for(let i = 0; i<= text.length - pattern.length; i++) {
-        let compare = text[i] + text[i+1]
+        let compare = text.slice(i,i+pattern.length)
         if(compare === pattern) {
             console.log(i)
             break
