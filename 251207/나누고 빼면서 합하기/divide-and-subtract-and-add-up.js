@@ -4,9 +4,8 @@ const [n, m] = input[0].split(" ").map(Number);
 const A = input[1].split(" ").map(Number);
 // Please Write your code here.
 
-let sum = 0
-
 function solution(m, A) {
+    let sum = 0
     while (m) {
         sum += A[m - 1]
 
