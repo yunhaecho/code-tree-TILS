@@ -6,23 +6,20 @@ const A = input[1].split(" ").map(Number);
 
 let sum = 0
 
-function solution (m,A) {
-    while(m) {
+function solution(m, A) {
+    while (m) {
+        sum += A[m - 1]
 
-    sum += A[m-1]
-
-    if( m % 2 ) {
-        m -= 1
-    } else {
-        m = Math.floor(m / 2)
-    } 
-
+        if (m % 2) {
+            m -= 1
+        } else {
+            m = Math.floor(m / 2)
+        }
     }
     return sum
 }
 
-const result = solution(m, A)
-console.log(result)
+console.log(solution(m, A))
 
 
 
