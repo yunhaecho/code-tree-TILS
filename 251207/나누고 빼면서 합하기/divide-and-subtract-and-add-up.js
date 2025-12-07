@@ -7,11 +7,7 @@ const A = input[1].split(" ").map(Number);
 let sum = 0
 
 function solution (m,A) {
-    while(m  > 0 ) {
-    
-    if( m === 0 ) {
-        break
-    }
+    while(m) {
 
     sum += A[m-1]
 
