@@ -14,23 +14,22 @@ function countDay(m, d) {
     let cnt = 0
     let i = 0 //시작은 월요일
 
-    while (true) {
-        i++ 
-        if (i === dayInfo.indexOf(day)) cnt++ //  4 === 4 / cnt = 5
-        
-        if (startM === m2 && startD === d2) break
-
-        if (i === 6) i = -1 
-
-        if (startD === dateInfo[startM]) { // 
+    while (startM != m2 || startD != d2) {
+        startD++
+        if (startD > dateInfo[startM]) {
             if (startM === 12) {
                 startM = 1
             } else {
                 startM++
             }
-            startD = 0
+            startD = 1
         }
-        startD++
+
+        i++
+        if (i === 7) i = 0
+
+        if (i === dayInfo.indexOf(day)) cnt++
+        
     }
     return cnt
 }
