@@ -6,10 +6,10 @@ const segments = input.slice(1, k + 1).map(line => line.split(' ').map(Number));
 // Please write your code here.4
 
 function solution () {
-    let arr = Array(n).fill(0)
+    let arr = Array(n+1).fill(0)
     for(let i = 0; i < segments.length; i++) {
-        const [s, e ] = segments[i]
-        for(let j = s; j <=e; j++) {
+        const [s , e ] = segments[i]
+        for(let j = s-1; j <=e-1; j++) {
             arr[j]++
         }
     }
