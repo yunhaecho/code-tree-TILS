@@ -28,7 +28,7 @@ function countDay(m, d) {
             } else {
                 startM++
             }
-            startD = 1
+            startD = 0
         }
         startD++
     }
