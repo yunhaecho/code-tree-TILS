@@ -10,10 +10,28 @@ for (let i = 1; i <= n; i++) {
 // Please write your code here.
 function solution() {
     let max = 0
+    let min = 0
+    let isNegative = false
+
     for(let j = 0; j < segments.length; j++) {
         const interval = segments[j]
         for(let i = 0; i < 2; i++) {
+            if(interval[i] < min) {
+                min = interval[i]
+                isNegative = true
+            }
+        }
+    }
+
+    for(let j = 0; j < segments.length; j++) {
+        const interval = segments[j]
+        for(let i = 0; i < 2; i++) {
+            if(isNegative) {
+                interval[i] = interval[i] + Math.abs(min)
+            }
+            
             if(interval[i] > max) max = interval[i]
+
         }
     }
 
