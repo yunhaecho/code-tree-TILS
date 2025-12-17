@@ -10,21 +10,21 @@ for (let i = 1; i <= n; i++) {
 // Please write your code here.
 function solution() {
     let max = 0
-
-    for(let interval of segments ) {
-        const [s,e] = interval
-        if(e > max) max = e
+    for(let j = 0; j < segments.length; j++) {
+        const interval = segments[j]
+        for(let i = 0; i < 2; i++) {
+            if(interval[i] > max) max = interval[i]
+        }
     }
 
     let arr = Array(max).fill(0)
 
-    for(let interval of segments ) {
-        const [s,e] = interval
-        for(let i = s; i < e; i++) {
-            arr[i]++
+    for(let i = 0 ; i < segments.length; i++) {
+        const [s,e] = segments[i]
+        for(let j = s; j < e; j++) {
+            arr[j]++
         }
     }
     return Math.max(...arr)
 }
-
 console.log(solution())
