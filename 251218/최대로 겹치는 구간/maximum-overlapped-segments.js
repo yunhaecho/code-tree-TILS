@@ -7,18 +7,21 @@ const segments = input.slice(1).map((arr) =>  arr.split(" ").map(Number))
 
 // Please write your code here.
 function solution() {
-    const arrLen = 100
+    const arrLen = 200
     let arr = Array(arrLen).fill(0)
+    let isNagative = false
 
     for(let i = 0; i < segments.length; i++) {
         const interval = segments[i]
         const [s,e] = interval
 
-        if(s < 0 || e < 0) {
+        if(s < 0 || e < 0) isNagative = true
+
+        if(isNagative) {
             s += arrLen
             e += arrLen
         }
-        
+
         for(let j = s; j <= e; j++) {
             arr[j]++
         }
