@@ -10,7 +10,7 @@ for (let i = 1; i <= n; i++) {
 // Please Write your code here.
 
 function solution() {
-    let arr = Array(100).fill(0)
+    let arr = Array(100+1).fill(0)
 
     for(let interval of segments) {
         const [s,e] = interval
