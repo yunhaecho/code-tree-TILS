@@ -13,7 +13,7 @@ function solution() {
 
     for(let i = 0; i < segments.length; i++) {
         const interval = segments[i]
-        const [s,e] = interval
+        let [s,e] = interval
 
         if(s < 0 || e < 0) isNagative = true
 
@@ -22,7 +22,7 @@ function solution() {
             e += arrLen
         }
 
-        for(let j = s; j <= e; j++) {
+        for(let j = s; j < e; j++) {
             arr[j]++
         }
     }
