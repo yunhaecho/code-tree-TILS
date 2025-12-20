@@ -10,9 +10,11 @@ function solution () {
     let arr = Array(40 + 1).fill(0)
     let interval = []
     let s = 20
+
     for(let i = 0; i < commands.length; i++) {
         const order = commands[i].split(" ")
-        let e = Number(order[0]) + s
+
+        let e = Number(order[0])
         const d = order[1]
 
         if(d === "R") {
@@ -27,12 +29,12 @@ function solution () {
     }
 
     for(let i = 0; i < interval.length; i++ ) {
-        const nums = interval[i]
-        for(let j = 0;  j<2; j++) {
-            arr[nums[j]]++
+        const [s,e] = interval[i]
+        for(let j = s;  j < e; j++) {
+            arr[j]++
         }
     }
-    return arr
+    return interval
 }
 
 console.log(solution())
