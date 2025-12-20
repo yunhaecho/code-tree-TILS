@@ -7,10 +7,11 @@ const commands = input.slice(1).map(line => line.split(' '));
 // Please Write your code here.
 
 function solution() {
-    let tile = Array(200000 + 1).fill(0) //200000
-    let W = Array(200000 + 1).fill(0) //200000
-    let B = Array(200000 + 1).fill(0) //200000
-    let cur  = 100000 //100000
+    let tile = Array(20 + 1).fill(0) //20
+    let W = Array(20 + 1).fill(0) //20
+    let B = Array(20 + 1).fill(0) //20
+    let cur  = 10 //100000 
+     
     let b = 0
     let g = 0
     let w = 0
@@ -22,48 +23,39 @@ function solution() {
 
         let s = 0
         let e = 0
-        
+    
         if (dir === "R") {
             s = cur
-            e = s + step
-            cur = e
+            e = cur + step
+            cur = e - 1
         } else if (dir === "L") {
-            s = cur - 
-            e = cur
+            s = cur - step +  1
+            e = cur + 1
             cur = s
-         }
-
-        for (let j = s; j step< e; j++) {
-            if (tile[j] === "X") continue
-
+            }
+        for (let j = s; j < e; j++) {
             if (dir === "R") {
                 tile[j] = "B"
-                B[j]++
+                B[j]+=1
             }
 
             if (dir === "L") {
                  tile[j] = "W" 
-                 W[j]++
+                 W[j]+=1
             }
 
-            if (tile[j] != "X" && B[j] >= 2 && W[j] >= 2 ) {
+            if (B[j] >= 2 && W[j] >= 2) {
                 tile[j] = "X" 
-                g++
             }
         }
+    } 
+
+    for (let k = 0; k < tile.length; k++) {
+        if (tile[k] === "W") w+=1;
+        else if (tile[k] === "B") b+=1;
+        else if (tile[k] === "X") g+=1;
     }
-
-    // console.log(tile)
-
-    tile.forEach((color) => {
-        if(color === "B") {
-            b++
-        } else if (color === "W") {
-            w++
-        }
-    })
 
     console.log(w, b, g) 
 }
-
 solution()
