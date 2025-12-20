@@ -10,23 +10,30 @@ function solution() {
     let tile = Array(200000 + 1).fill(0) //200000
     let W = Array(200000 + 1).fill(0) //200000
     let B = Array(200000 + 1).fill(0) //200000
-    let s  = 100000 //100000
+    let cur  = 100000 //100000
     let b = 0
     let g = 0
     let w = 0
-    let e = s
+    
     for (let i = 0; i < commands.length; i++) {
         const order = commands[i]
         let step = Number(order[0])
         const dir = order[1]
+
+        let s = 0
+        let e = 0
         
         if (dir === "R") {
+            s = cur
             e = s + step
+            cur = e
         } else if (dir === "L") {
-            s = e - step
+            s = cur - 
+            e = cur
+            cur = s
          }
 
-        for (let j = s; j < e; j++) {
+        for (let j = s; j step< e; j++) {
             if (tile[j] === "X") continue
 
             if (dir === "R") {
