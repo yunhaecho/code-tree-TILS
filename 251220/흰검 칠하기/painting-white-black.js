@@ -7,14 +7,14 @@ const commands = input.slice(1).map(line => line.split(' '));
 // Please Write your code here.
 
 function solution() {
-    let tile = Array(20 + 1).fill(0) //200000
-    let W = Array(20 + 1).fill(0) //200000
-    let B = Array(20 + 1).fill(0) //200000
-    let s  = 10 //100000
+    let tile = Array(200000 + 1).fill(0) //200000
+    let W = Array(200000 + 1).fill(0) //200000
+    let B = Array(200000 + 1).fill(0) //200000
+    let s  = 100000 //100000
     let b = 0
     let g = 0
     let w = 0
-    let e;
+    let e = s
     for (let i = 0; i < commands.length; i++) {
         const order = commands[i]
         let step = Number(order[0])
@@ -22,36 +22,32 @@ function solution() {
         
         if (dir === "R") {
             e = s + step
-        } 
-
-        if (dir === "L") {
-            e = s
+        } else if (dir === "L") {
             s = e - step
          }
 
         for (let j = s; j < e; j++) {
-
-            if (tile[i] === "X") continue
+            if (tile[j] === "X") continue
 
             if (dir === "R") {
-                tile[i] = "B"
-                B[i]++
+                tile[j] = "B"
+                B[j]++
             }
 
             if (dir === "L") {
-                 tile[i] = "W" 
-                 W[i]++
+                 tile[j] = "W" 
+                 W[j]++
             }
 
-            if (tile[i] != "X" && B[i] >= 2 && W[i] >= 2 ) {
-                tile[i] = "X" 
+            if (tile[j] != "X" && B[j] >= 2 && W[j] >= 2 ) {
+                tile[j] = "X" 
                 g++
             }
         }
     }
 
-    console.log(tile)
-    
+    // console.log(tile)
+
     tile.forEach((color) => {
         if(color === "B") {
             b++
