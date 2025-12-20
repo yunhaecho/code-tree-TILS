@@ -7,9 +7,10 @@ const commands = input.slice(1, n + 1)
 // Please Write your code here.
 
 function solution () {
-    let arr = Array(40 + 1).fill(0)
+    let arr = Array(2000 + 1).fill(0)
     let interval = []
-    let s = 20
+    let s = 1000
+    let cnt = 0
 
     for(let i = 0; i < commands.length; i++) {
         const order = commands[i].split(" ")
@@ -30,11 +31,16 @@ function solution () {
 
     for(let i = 0; i < interval.length; i++ ) {
         const [s,e] = interval[i]
-        for(let j = s;  j < e; j++) {
+        for(let j = s; j < e; j++) {
             arr[j]++
         }
     }
-    return interval
+
+    arr.forEach((idx) => {
+        if(idx >= 2) cnt++
+    })
+
+    return cnt
 }
 
 console.log(solution())
