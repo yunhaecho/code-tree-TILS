@@ -8,12 +8,12 @@ const commands = input.slice(1);
 
 function solution() {
 
-    let arr = Array(20+1).fill(0)
+    let arr = Array(200000+1).fill(0)
     let s = 0
     let e = 0
-    let cur  = 10
-            let r = 0
-        let l = 0
+    let cur  = 100000
+    let r = 0
+    let l = 0
     
     const orders = commands.map((arr) => arr.split(" "))
 
