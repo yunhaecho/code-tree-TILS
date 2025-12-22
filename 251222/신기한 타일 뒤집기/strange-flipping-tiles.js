@@ -11,7 +11,7 @@ function solution() {
     let arr = Array(200000+1).fill(0)
     let s = 0
     let e = 0
-    let cur  = 100000
+    let cur = 100000
     let r = 0
     let l = 0
     
@@ -40,8 +40,12 @@ function solution() {
     }
 
     for(let i = 0; i< arr.length; i++) {
-        if(arr[i] === "R") r++
-        if(arr[i] === "L") l++
+        if(arr[i] === "R") {
+            r++
+        }
+        else if(arr[i] === "L") {
+            l++
+        }
 
     }
 
