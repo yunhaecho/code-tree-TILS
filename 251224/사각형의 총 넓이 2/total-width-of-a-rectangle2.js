@@ -14,12 +14,11 @@ function solution() {
 
     for (let i = 0; i < rects.length; i++) {
         const [x1, y1, x2, y2] = rects[i].map((num) => num += 100)
-
         for (let j = x1; j < x2; j++) {
-            for (let i = y1; i < y2; i++) {
-                arr[j][i] += 1
+            for (let k = y1; k < y2; k++) {
+                arr[j][k]++
                 sum++
-                if (arr[j][i] === 2) overlap++
+                if (arr[j][k] >= 2) overlap++
             }
         }
     }
