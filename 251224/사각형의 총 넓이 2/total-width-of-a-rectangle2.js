@@ -10,12 +10,10 @@ let overlap = 0
 // let x1, y1, x2, y2 = 0
 
 function solution() {
-    let arr = Array(6).fill(0).map((elem) => elem = Array(6).fill(0))// [[0],[0],[0],[0],[0],[0]]
-    // const range = coordinates.map((num) => num += 20)
-    // const [x1, y1, x2, y2]  = range
+    let arr = Array(200).fill(0).map((elem) => elem = Array(200).fill(0))
 
     for (let i = 0; i < rects.length; i++) {
-        const [x1, y1, x2, y2] = rects[i]
+        const [x1, y1, x2, y2] = rects[i].map((num) => num += 100)
 
         for (let j = x1; j < x2; j++) {
             for (let i = y1; i < y2; i++) {
