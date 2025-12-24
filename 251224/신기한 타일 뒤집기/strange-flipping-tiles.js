@@ -8,16 +8,16 @@ const commands = input.slice(1);
 
 function solution() {
 
-    let arr = Array(20+1).fill(0)
-    let s = 10
+    let arr = Array(200000+1).fill(0)
+    let s = 100000
     let e = 0
-    let cur = 10
+    let cur = 100000
     let r = 0
     let l = 0
     
     const orders = commands.map((arr) => arr.split(" "))
 
-    for(let i = 0; i < orders.length;i++) {
+    for(let i = 0; i < orders.length; i++) {
         const order = orders[i]
         const step = Number(order[0]) // 5
         const dir = order[1] //L
