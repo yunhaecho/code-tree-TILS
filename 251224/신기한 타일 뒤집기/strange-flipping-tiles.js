@@ -26,19 +26,19 @@ function solution() {
             s = cur //10
             e = cur + step //14
             cur = e - 1 // 13
-            console.log(s,e,cur)
+            // console.log(s,e,cur)
 
         } else if( dir === "L") {
-            s = e - step + 1 // 14 - 5 + 1 = 9+1 = 10
             e = cur + 1 // 14
+            s = e - step // 
             cur = s // 10
-            console.log(s,e)
+            // console.log(s,e,cur)
         }
 
         for(let j = s; j < e; j++) {
             arr[j] = dir // 10 < 14 arr[10<14] = "R"
         }
-        console.log(arr)
+        // console.log(arr)
     }
 
     for(let i = 0; i< arr.length; i++) {
