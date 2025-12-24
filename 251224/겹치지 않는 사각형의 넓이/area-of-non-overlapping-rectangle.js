@@ -7,16 +7,16 @@ const rectM = input[2].split(' ').map(Number);
 //[[1 2 3 5],[6 0 10 4],[6 0 10 4]]
 
 // Please Write your code here.
-let arr = Array(10).fill(0).map((elem) => elem = Array(5).fill(0))
+let arr = Array(2000).fill(0).map((elem) => elem = Array(2000).fill(0))
 
-const rects = [rectA, rectB]
+const rects = [rectA , rectB]
 
 function solution() {
     let sum = 0
-    const [mx1, my1, mx2, my2] = rectM;
+    const [mx1, my1, mx2, my2] = rectM.map((num)=> num += 1000);
 
     for (let i = 0; i < rects.length; i++) {
-        const [x1, y1, x2, y2] = rects[i];
+        const [x1, y1, x2, y2] = rects[i].map((num)=> num += 1000);
 
         for (let x = x1; x < x2; x++) {
             for (let y = y1; y < y2; y++) {
