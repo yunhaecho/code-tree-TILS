@@ -24,7 +24,7 @@ function solution () {
         result.push(arr[i])
         len.push(result.length)
 
-        console.log(len)
+        // console.log(len)
     }
     return Math.max(...len)
 
