@@ -7,19 +7,24 @@ const rects = input.slice(1, 1 + n).map(line => line.split(' ').map(Number));
 // Please Write your code here.
 
 function solution() {
-    let arr = Array(12).fill(0).map((cell) => cell = Array(12).fill(0))
+    let sum = 0
+    let s, e = 0
+    let arr = Array(201).fill(0).map((cell) => cell = Array(201).fill(0))
     for (let k = 0; k < rects.length; k++) {
-        const [s, e] = rects[k] // 4,0
+        const [s, e] = rects[k].map((num) => num += 100)// 4,0
+
         for (let i = s; i < s + 8; i++) {
             for (let j = e; j < e + 8; j++) {
-                arr[i][j]++ 
-                // arr[0][0] ... arr[0][7]
-                // arr[1][0] ... arr[1][7]
+                if(arr[i][j] >= 1) {
+                    continue
+                } else {
+                    arr[i][j]++
+                    sum++
+                }
             }
         }
-
     }
-    console.log(arr)
+    return sum
 }
 
-solution()
+console.log(solution())
