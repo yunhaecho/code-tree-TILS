@@ -3,7 +3,7 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 
 const n = Number(input[0]);
 const arr = input.slice(1, n + 1).map(Number);
-console.log(arr)
+// console.log(arr)
 // Please Write your code here.
 
 function solution() {
