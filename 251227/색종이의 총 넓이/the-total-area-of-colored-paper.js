@@ -11,11 +11,11 @@ function solution() {
     let s, e = 0
     let arr = Array(201).fill(0).map((cell) => cell = Array(201).fill(0))
     for (let k = 0; k < rects.length; k++) {
-        const [s, e] = rects[k].map((num) => num += 100)// 4,0
+        const [s, e] = rects[k].map((num) => num += 100)
 
         for (let i = s; i < s + 8; i++) {
             for (let j = e; j < e + 8; j++) {
-                if(arr[i][j] >= 1) {
+                if(arr[i][j]) {
                     continue
                 } else {
                     arr[i][j]++
