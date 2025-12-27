@@ -9,8 +9,6 @@ let len = []
 // Please Write your code here.
 
 function solution () {
-    let max = 0
-
     if(n === 1) return 1
 
     for(let i = 0; i < arr.length; i++) {
@@ -20,14 +18,13 @@ function solution () {
         }
 
         if(arr[i] > 0 && arr[i-1] < 0 || arr[i] < 0 && arr[i-1] > 0) {
+            len.push(result.length)
             result = []
-        }
-
+        } 
         result.push(arr[i])
-        len.push(result.length)
-
-        // console.log(len)
     }
+    len.push(result.length)
+
     return Math.max(...len)
 
 }
