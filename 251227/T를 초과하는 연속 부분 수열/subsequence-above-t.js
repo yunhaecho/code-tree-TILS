@@ -11,7 +11,7 @@ function solution() {
     let curLen = 0
 
     if (n === 1) {
-        if (n >= t) {
+        if (n > t) {
             return 1
         } else {
             return 0
@@ -19,18 +19,16 @@ function solution() {
     }
 
     for (let i = 0; i < n; i++) {
-        if (arr[i] < t) {
-            curLen = 0 // 
+        if (arr[i] <= t) {
+            curLen = 0
         } else {
-            if (i >= 1 && arr[i] >= arr[i - 1]) {
-                curLen++ //3
-            } else {
-                curLen = 1
-            }
+            curLen++
         }
-        if (curLen > max) max = curLen //max = 3
+        if (curLen >= max) max = curLen //max = 3
     }
+
     if (curLen >= max) max = curLen
+
     return max
 }
 console.log(solution())
