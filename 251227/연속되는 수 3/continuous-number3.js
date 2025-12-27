@@ -11,6 +11,8 @@ let len = []
 function solution () {
     let max = 0
 
+    if(n === 1) return 1
+
     for(let i = 0; i < arr.length; i++) {
         if(i === 0 ) {
             result.push(arr[i])
