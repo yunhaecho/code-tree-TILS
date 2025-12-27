@@ -18,20 +18,19 @@ function solution() {
         }
     }
 
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < n; i++) {
         if (arr[i] < t) {
-            curLen = 0
-            continue
+            curLen = 0 // 
         } else {
-            if (i >= 1 && arr[i] > arr[i - 1]) {
-                curLen++
-                if (curLen > max) max = curLen
+            if (i >= 1 && arr[i] >= arr[i - 1]) {
+                curLen++ //3
             } else {
                 curLen = 1
             }
         }
+        if (curLen > max) max = curLen //max = 3
     }
-    if (curLen > max) max = curLen
-    return curLen
+    if (curLen >= max) max = curLen
+    return max
 }
 console.log(solution())
