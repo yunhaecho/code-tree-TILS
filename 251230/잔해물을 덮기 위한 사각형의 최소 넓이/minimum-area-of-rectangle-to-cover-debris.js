@@ -9,9 +9,9 @@ const rect2 = input[1].split(' ').map(Number);
 function solution() {
     let arr = Array(2001).fill(0).map((cell) => cell = Array(2001).fill(0))
     const rects = [rect1, rect2]
-    let xMin = 0
+    let xMin = 2000
     let xMax = 0
-    let yMin = 0
+    let yMin = 2000
     let yMax = 0
     let sum = 0
 
@@ -24,39 +24,39 @@ function solution() {
         }
     }
 
-    minLoop : for (let x = 0; x < arr.length; x++) {
+    for (let x = 0; x <arr.length; x++) { 
         const row = arr[x]
-        for (let y = 0; y < row.length; y++) {
+        for (let y = 0; y < row.length; y++) { 
             if (arr[x][y] === 1) {
-                xMin = x
-                yMin = y
-                break minLoop;
+                xMin = Math.min(xMin, x);
+                yMin = Math.min(yMin, y);
+                xMax = Math.max(xMax, x);
+                yMax = Math.max(yMax, y);
             }
         }
     }
 
-    if(xMin === 0 && yMin === 0 ) return 0
+    // console.log(xMin,yMin,xMax,yMax)
 
-    for (let x = 0; x < arr.length; x++) {
-        const row = arr[x]
-        for (let y = 0; y < row.length; y++) {
-            if (arr[x][y] === 1) {
-                if (x > xMax) xMax = x
-                if (y > yMax) yMax = y
-            }
-        }
-    }
+    if(xMin === 2000 && yMin=== 2000 ) return 0
 
-    for (let x = xMin; x <= xMax; x++) {
-        for (let y = yMin; y <= yMax; y++) {
-            sum++
-        }
-    }
+    // for (let x = 0; x < arr.length; x++) {
+    //     const row = arr[x]
+    //     for (let y = 0; y < row.length; y++) {
+    //         if (arr[x][y] === 1) {
+    //             if (x > xMax) xMax = x
+    //             if (y > yMax) yMax = y
+    //         }
+    //     }
+    // }
 
-    if(sum === 0 ) return 0
+    // for (let x = xMin; x <= xMax; x++) {
+    //     for (let y = yMin; y <= yMax; y++) {
+    //         sum++
+    //     }
+    // }
 
-    return sum
-
+    return (xMax - xMin + 1) * (yMax - yMin + 1) 
 }
 // solution()
 console.log(solution())
