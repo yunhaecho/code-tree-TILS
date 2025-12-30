@@ -35,6 +35,8 @@ function solution() {
         }
     }
 
+    if(xMin === 0 && yMin === 0 ) return 0
+
     for (let x = 0; x < arr.length; x++) {
         const row = arr[x]
         for (let y = 0; y < row.length; y++) {
@@ -50,6 +52,8 @@ function solution() {
             sum++
         }
     }
+
+    if(sum === 0 ) return 0
 
     return sum
 
