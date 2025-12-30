@@ -20,7 +20,7 @@ function solution() {
 
         if(arr[i] != arr[i-1]) cnt = 1
 
-        if(i >=1 && arr[i] === arr[i-1]) cnt++
+        if(i >=1 || arr[i] === arr[i-1]) cnt++
 
         cntArr[i] = cnt
     }
