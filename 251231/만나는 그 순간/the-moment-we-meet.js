@@ -18,8 +18,8 @@ for (let i = 0; i < m; i++) {
 
 function solution() {
     //1초엔 인덱스가 어디인지 
-    let a = Array(20).fill(0)
-    let b = Array(20).fill(0)
+    let a = Array(1000001).fill("")
+    let b = Array(1000001).fill("")
     // start = 0 idx
     let curT = 1
     let loc = 0
@@ -55,15 +55,12 @@ function solution() {
         }
         curT += count
     }
-    // console.log(a,b)
 
-    const len = Math.min(a.length, b.length)
+    for(let i = 1; i < a.length; i++) {
+        if(a[i] === "" || b[i] === "") return -1
 
-    for(let i = 1; i < len; i++) {
-        if(a[i] === b[i]) return i
+        if(a[i] === b[i])return i
     }
-
-    return -1
 
 }
 
