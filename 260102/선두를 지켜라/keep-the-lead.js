@@ -30,7 +30,6 @@ function solution() {
     let status = "start"
 
     for(let i = 0; i < positionA.length; i++) {
-        console.log(i, status, cnt)
         if(positionA[i] > positionB[i]) {
             if(status === "a") continue
             status = "a"
