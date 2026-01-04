@@ -10,42 +10,23 @@ for (let i = 1; i <= t; i++) {
 // Please write your code here.
 
 function solution() {
-    const cnt = Array(n+1).fill(k)
+    const infectionCount = Array(n+1).fill(k)
     const isInfected = Array(n+1).fill(0)
     isInfected[p] = 1
     shakes.sort( (a, b) => a.time - b.time)
 
     for (let i = 0; i < shakes.length; i++) {
-        const p1 = shakes[i].person1
-        const p2 = shakes[i].person2
+        const {person1: p1, person2: p2} = shakes[i]
 
-        if(isInfected[p1] && cnt[p1] > 0) {
-            if(!isInfected[p2]){ //비감염자
-                isInfected[p2] = 1
-                cnt[p1] -= 1
-                }
-            else if(isInfected[p2] && cnt[p2] > 0) {
-                cnt[p1] -=1
-                cnt[p2] -=1
-            
-            } else if(isInfected[p2 ] && cnt[p2] === 0) {
-                cnt[p1] -=1
-            }
-            
-        } else if (isInfected[p2] && cnt[p2] > 0) {
-            if(!isInfected[p1]){ //비감염자
-                isInfected[p1] = 1
-                cnt[p2] -= 1
-                }
-            else if(isInfected[p1] && cnt[p1] > 0) {
-                cnt[p1] -=1
-                cnt[p2] -=1
-            
-            } else if(isInfected[p1] && cnt[p1] === 0) {
-                cnt[p2] -= 1
-            }
-            
-        } 
+        const p1CanInfected = isInfected[p1] && infectionCount[p1] > 0
+        const p2Caninfected = isInfected[p2] && infectionCount[p2] > 0
+
+        if(p1CanInfected) infectionCount[p1]--
+        if(p2Caninfected) infectionCount[p2]--
+
+        if(p1CanInfected && !isInfected[p2]) isInfected[p2] = 1
+        if(p2Caninfected && !isInfected[p1]) isInfected[p1] = 1
+
     }
     return isInfected.slice(1).join("")
 
