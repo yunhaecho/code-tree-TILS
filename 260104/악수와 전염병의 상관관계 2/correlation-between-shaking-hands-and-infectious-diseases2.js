@@ -17,10 +17,10 @@ function solution() {
     for(let i = 0; i < shakes.length; i++) {
         const [time, p1, p2]  = shakes[i]
 
-        if(p1 === p) {
+        if(result[p1-1] === 1 ) {
             result[p2-1] = 1
             cnt -= 1
-        } else if(p2 === p){
+        } else if(result[p2-1] === 1){
             result[p1-1] = 1
             cnt -= 1
         }
