@@ -4,12 +4,34 @@ const [n, k, p, t] = input[0].split(' ').map(Number);
 const shakes = [];
 for (let i = 1; i <= t; i++) {
     const [time, person1, person2] = input[i].split(' ').map(Number);
-    shakes.push({ time, person1, person2 });
-}
-// Please write your code here.
-function solution() {
-    console.log(shakes.sort())
+    shakes.push([time, person1, person2 ]);
 }
 
-solution()
+// Please write your code here.
+function solution() {
+    const result = Array(n).fill(0)
+    result[p-1] = 1
+    shakes.sort()
+    let cnt = k
+
+    for(let i = 0; i < shakes.length; i++) {
+        const [time, p1, p2]  = shakes[i]
+
+        if(p1 === p) {
+            result[p2-1] = 1
+            cnt -= 1
+        } else if(p2 === p){
+            result[p1-1] = 1
+            cnt -= 1
+        }
+        
+         if(cnt === 0 ){
+            return result.join("")
+        }
+
+    }
+
+}
+
+console.log(solution())
 
