@@ -10,48 +10,44 @@ for (let i = 1; i <= t; i++) {
 // Please write your code here.
 
 function solution() {
-    const result = Array(n).fill(0)
-    const shakesCnt = Array(n).fill(k)
-
-    result[p - 1] = 1
-    shakes.sort(function (a, b) {
-        return a.time - b.time
-    })
+    const cnt = Array(n+1).fill(k)
+    const isInfected = Array(n+1).fill(0)
+    isInfected[p] = 1
+    shakes.sort( (a, b) => a.time - b.time)
 
     for (let i = 0; i < shakes.length; i++) {
-        const time = shakes[i].time
         const p1 = shakes[i].person1
         const p2 = shakes[i].person2
 
-        if (result[p1- 1] === 1 && shakesCnt[p1 - 1] > 0) {
-            if(result[p2 - 1] === 0 ){ //비감염자
-                result[p2 - 1] = 1
-                shakesCnt[p1 - 1] -= 1
+        if(isInfected[p1] && cnt[p1] > 0) {
+            if(!isInfected[p2]){ //비감염자
+                isInfected[p2] = 1
+                cnt[p1] -= 1
                 }
-            else if(result[p2 - 1] === 1 && shakesCnt[p2 - 1] > 0) {
-                shakesCnt[p1 - 1] -=1
-                shakesCnt[p2 - 1] -=1
+            else if(isInfected[p2] && cnt[p2] > 0) {
+                cnt[p1] -=1
+                cnt[p2] -=1
             
-            } else if(result[p2 - 1] === 1 && shakesCnt[p2 - 1] === 0) {
-                shakesCnt[p1 -1] = 0
+            } else if(isInfected[p2 ] && cnt[p2] === 0) {
+                cnt[p1] -=1
             }
             
-        } else if (result[p2 - 1] === 1 && shakesCnt[p2 - 1] > 0) {
-            if(result[p1 - 1] === 0 ){ //비감염자
-                result[p1 - 1] = 1
-                shakesCnt[p2 - 1] -= 1
+        } else if (isInfected[p2] && cnt[p2] > 0) {
+            if(!isInfected[p1]){ //비감염자
+                isInfected[p1] = 1
+                cnt[p2] -= 1
                 }
-            else if(result[p1 - 1] === 1 && shakesCnt[p1 - 1] > 0) {
-                shakesCnt[p1 - 1] -=1
-                shakesCnt[p2 - 1] -=1
+            else if(isInfected[p1] && cnt[p1] > 0) {
+                cnt[p1] -=1
+                cnt[p2] -=1
             
-            } else if(result[p1 - 1] === 1 && shakesCnt[p1 - 1] === 0) {
-                shakesCnt[p2 -1] = 0
+            } else if(isInfected[p1] && cnt[p1] === 0) {
+                cnt[p2] -= 1
             }
             
         } 
     }
-    return result.join("")
+    return isInfected.slice(1).join("")
 
 }
 
