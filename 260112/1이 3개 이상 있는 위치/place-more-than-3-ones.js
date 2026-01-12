@@ -26,16 +26,14 @@ function solution() {
                 let nx = i + dx[j]
                 let ny = k + dy[j]
 
-                if (inRange(nx, ny) ) {
-                     if(grid[nx][ny] === 1) {
-                    cntOne +=1
+                if (inRange(nx, ny)) {
+                    if (grid[nx][ny] === 1) {
+                        cntOne += 1
+                    }
                 }
-                } 
             }
 
-            if (cntOne >= 3) {
-                cntThree++
-            }
+            if (cntOne >= 3) cntThree++
             cntOne = 0
         }
     }
