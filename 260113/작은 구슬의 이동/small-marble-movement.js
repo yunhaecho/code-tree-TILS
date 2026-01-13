@@ -28,7 +28,7 @@ function solution() {
     //4초동안 반복하면서
     for (let i = 0; i < t; i++) {
         if (!inRange(nx +dx[dirNum],ny+dy[dirNum],n)) {
-            dirNum = 3 - dirChar[d]
+            dirNum = 3 - dirNum
             continue
         }
             nx += dx[dirNum]
