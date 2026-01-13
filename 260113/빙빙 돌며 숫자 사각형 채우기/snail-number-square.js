@@ -17,8 +17,8 @@ function solution() {
     let ny = 0
     arr[nx][ny] = 1
 
-    for(let i = 0; i < n; i++) {
-        for(let j = 0; j < m; j++) {
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < m; j++) {
 
             if (!inRange(nx + dx[dirNum], ny + dy[dirNum]) || arr[nx + dx[dirNum]][ny + dy[dirNum]] > 0) {
                 dirNum = dirNum % 4 + 1
@@ -26,9 +26,13 @@ function solution() {
 
             nx += dx[dirNum]
             ny += dy[dirNum]
-            if( arr[nx][ny] != 0) continue
-            arr[nx][ny] = num
-            num+=1
+            if (arr[nx][ny] != 0) {
+                continue
+            } else {
+                arr[nx][ny] = num
+                num += 1
+            }
+
         }
     }
 
