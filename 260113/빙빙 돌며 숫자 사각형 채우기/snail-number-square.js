@@ -11,29 +11,26 @@ function solution() {
     const dx = [0, 0, 1, 0, -1]
     const dy = [0, 1, 0, -1, 0]
     let arr = Array(n).fill(0).map((elem) => elem = Array(m).fill(0))
-    let num = 2
+    let num = 1
     let dirNum = 1
-    let nx = 0
-    let ny = 0
-    arr[nx][ny] = 1
+    let x = 0
+    let y = 0
 
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < m; j++) {
+    arr[x][y] = num++
 
-            if (!inRange(nx + dx[dirNum], ny + dy[dirNum]) || arr[nx + dx[dirNum]][ny + dy[dirNum]] > 0) {
-                dirNum = dirNum % 4 + 1
-            }
+    while (num <= n*m) {
+        let nx = x + dx[dirNum]
+        let ny = y + dy[dirNum]
 
-            nx += dx[dirNum]
-            ny += dy[dirNum]
-            if (arr[nx][ny] != 0) {
-                continue
-            } else {
-                arr[nx][ny] = num
-                num += 1
-            }
-
+        if (!inRange(nx, ny) || arr[nx][ny] !== 0) {
+            dirNum = dirNum % 4 + 1
+            nx = x + dx[dirNum]
+            ny = y + dy[dirNum]
         }
+        arr[nx][ny] = num++
+        x = nx
+        y = ny
+        
     }
 
     arr.map((line) => console.log(line.join(" ")))
