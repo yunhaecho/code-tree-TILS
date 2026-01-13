@@ -23,7 +23,7 @@ function solution() {
         if (order === "R") {
             dirNum = (dirNum + 1 ) % 4
         } else if (order === "L") { 
-            dirNum = (dirNum + 2 ) % 4
+            dirNum = (dirNum + 3 ) % 4
         }
 
         if (order === "F") {
