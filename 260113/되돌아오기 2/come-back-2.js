@@ -21,20 +21,20 @@ function solution() {
 
     for (const order of commands) {
         if (order === "R") {
-            dirNum += 1
-        } else if (order === "L") {
-            dirNum -= 1
+            dirNum = (dirNum + 1 ) % 4
+        } else if (order === "L") { 
+            dirNum = (dirNum + 2 ) % 4
         }
 
         if (order === "F") {
             x += dx[dirNum]
             y += dy[dirNum]
         }
-            cnt++
+
+        cnt++
         if (x === 0 & y === 0) return cnt
 
     }
-
     return -1
 }
 
