@@ -26,7 +26,7 @@ function solution() {
 
             nx += dx[dirNum]
             ny += dy[dirNum]
-            if( arr[nx][ny] > 0) continue
+            if( arr[nx][ny] != 0) continue
             arr[nx][ny] = num
             num+=1
         }
