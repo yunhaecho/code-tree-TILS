@@ -35,44 +35,27 @@ const getPosition = (startNum) => {
         y = 0
         moveDir = 1
     }
-
     return [x, y, moveDir]
-
 }
 
 function solution() {
-
     let [x, y, dirNum] = getPosition(startNum).map((elem) => Number(elem))
 
     let cnt = 0
     const dx = [-1, 0, 1, 0]
     const dy = [0, 1, 0, -1]
+
     while (inRange(x, y)) {
-        if (dirNum === 0 || dirNum === 2) {
-            if (arr[x][y] === "/") {
-                dirNum = (dirNum + 1) % 4
-            } else {
-                dirNum = (dirNum + 3) % 4
-            }
-        } else if (dirNum === 1|| dirNum === 3) {
-            if (arr[x][y] === "/") {
-                dirNum = (dirNum + 3) % 4
-            } else {
-                dirNum = (dirNum + 1) % 4
-            }
+        if(arr[x][y] === "\'") {
+            dirNum  = 3 - dirNum
+        } else {
+            dirNum = dirNum ^ 1
         }
-
-        let nx = x + dx[dirNum]
-        let ny = y + dy[dirNum]
-
-        x = nx
-        y = ny
+        x += dx[dirNum]
+        y += dy[dirNum]
         cnt++
-        if (!inRange(nx, ny)) return cnt
     }
-
-
-
+    return cnt
 }
 
 console.log(solution())
