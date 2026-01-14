@@ -27,8 +27,8 @@ const getPosition = (startNum) => {
         y = n - 1
         moveDir = 3
     } else if (dirNum === 2) {
-        x = dirNum
-        y = dirNum - offset
+        x = n-1
+        y = n-1 - offset
         moveDir = 0
     } else if (dirNum === 3) {
         x = n - 1 - offset
@@ -46,10 +46,10 @@ function solution() {
     const dy = [0, 1, 0, -1]
 
     while (inRange(x, y)) {
-        if(arr[x][y] === "\'") {
-            dirNum  = 3 - dirNum
-        } else {
+        if(arr[x][y] === "/") {
             dirNum = dirNum ^ 1
+        } else {
+            dirNum  = 3 - dirNum
         }
         x += dx[dirNum]
         y += dy[dirNum]
