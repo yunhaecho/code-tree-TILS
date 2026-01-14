@@ -15,26 +15,30 @@ const inRange = (x, y) => {
 const getPosition = (startNum) => {
     const dirNum = Math.floor((startNum - 1) / n) // 0 1 2 3
     const offset = (startNum - 1) % n // 0 1 2
+    let moveDir;
     let x = 0
     let y = 0
     if (dirNum === 0) {
         x = dirNum
         y = offset
+        moveDir = 2
     } else if (dirNum === 1) {
         x = offset
-        y = 2
+        y = n - 1
+        moveDir = 3
     } else if (dirNum === 2) {
         x = dirNum
         y = dirNum - offset
+        moveDir = 0
     } else if (dirNum === 3) {
-        x = 2 - offset
+        x = n - 1 - offset
         y = 0
+        moveDir = 1
     }
 
-    return [x, y, dirNum]
+    return [x, y, moveDir]
 
 }
-
 
 function solution() {
 
@@ -43,35 +47,30 @@ function solution() {
     let cnt = 0
     const dx = [-1, 0, 1, 0]
     const dy = [0, 1, 0, -1]
-
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
-
-
-            if (dirNum === 0 || dirNum === 1) {
-                if (arr[x][y] === "/") {
-                    dirNum = (dirNum + 1) % 4
-                } else {
-                    dirNum = (dirNum + 3) % 4
-                }
-            } else if (dirNum === 2 || dirNum === 3) {
-                if (arr[x][y] === "/") {
-                    dirNum = (dirNum + 3) % 4
-                } else {
-                    dirNum = (dirNum + 1) % 4
-                }
+    while (inRange(x, y)) {
+        if (dirNum === 0 || dirNum === 2) {
+            if (arr[x][y] === "/") {
+                dirNum = (dirNum + 1) % 4
+            } else {
+                dirNum = (dirNum + 3) % 4
             }
-
-            let nx = x + dx[dirNum]
-            let ny = y + dy[dirNum]
-
-            x = nx
-            y = ny
-            cnt++
-            if(!inRange(nx,ny)) return cnt
-
+        } else if (dirNum === 1|| dirNum === 3) {
+            if (arr[x][y] === "/") {
+                dirNum = (dirNum + 3) % 4
+            } else {
+                dirNum = (dirNum + 1) % 4
+            }
         }
+
+        let nx = x + dx[dirNum]
+        let ny = y + dy[dirNum]
+
+        x = nx
+        y = ny
+        cnt++
+        if (!inRange(nx, ny)) return cnt
     }
+
 
 
 }
