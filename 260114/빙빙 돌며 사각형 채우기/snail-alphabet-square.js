@@ -17,13 +17,16 @@ function solution() {
     let x = 0
     let y = 0
     let num = 0
+    let cnt = 0
 
-    while(num < n*m) {
+    while(cnt < n*m) {
 
         if(arr[x][y] === 0 ){
             arr[x][y] = eg[num]
         }
         num++
+        cnt++
+        if(num === eg.length) num = 0
 
         let nx = x + dx[dirNum]
         let ny = y + dy[dirNum]
