@@ -5,23 +5,19 @@ const n = Number(input[0]);
 const arr = input[1].split(' ').map(Number);
 
 // Please Write your code here.
-
 function solution() {
-    const result = []
-    let sum = 0
-    for(let i = 0; i < n; i++) {
-        const curHome = i + 1
-        for(let j = 0; j < arr.length; j++) {
-            const person = arr[j]
-            const homeNum = j + 1
-            const distance = Math.abs(curHome - homeNum ) * person
-            sum += distance
-        }
-        result.push(sum)
-        sum = 0
-    }
-        return Math.min(...result)
+    const intMax = Number.MAX_SAFE_INTEGER;
+    let minVal = intMax;
 
+    for(let i = 0; i < n; i++) {
+    let sum = 0
+        for(let j = 0; j < arr.length; j++) {
+            sum += Math.abs(i - j ) * arr[j]
+        }
+        minVal = Math.min(minVal, sum)
+    }
+
+    return minVal
 }
 
 console.log(solution())
