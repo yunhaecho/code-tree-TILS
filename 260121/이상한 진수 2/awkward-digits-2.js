@@ -5,26 +5,39 @@ const a = input[0];
 
 // Please Write your code here.
 const digit = a.length
-const binary = a.split("").map(Number)
 
-function solution(num) {
+const convert = (num) => {
+    let decimal = 0
+
     for(const char of num) {
-        if(char === "1") {
+        if(char) {
             const idx = num.indexOf(char)
             decimal += 2**(digit - (idx+1))
         }
     }
+    console.log(decimal)
 
-    max = Math.max(decimal, max) // 12, 12
-    
-    for (let i = idx; i < binary.length; i++) {
+    return decimal
+}
+
+console.log(convert([0,0,0,1]))
+
+function solution() {
+const binary = a.split("").map(Number)
+
+let max = convert(binary)
+
+    for (let i = 0; i < digit; i++) {
         if (binary[i] === 0) {
-            binary[i] = 1
-            decimal = solution(binary.join(""))
+            const numArr = binary
+            console.log(numArr)
+            numArr[i] = 1
+            let number = convert(numArr)
+            max = Math.max(number,max)
         }
     }
 
-    return max
+    return  max
 }
 
-console.log(solution(a))
+console.log(solution())
