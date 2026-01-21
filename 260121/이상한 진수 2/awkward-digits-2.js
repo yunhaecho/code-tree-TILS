@@ -9,35 +9,28 @@ const digit = a.length
 const convert = (num) => {
     let decimal = 0
 
-    for(const char of num) {
-        if(char) {
-            const idx = num.indexOf(char)
-            decimal += 2**(digit - (idx+1))
+    for(let i = 0; i < digit;i++) {
+        if(num[i]) {
+            decimal += 2**(digit - (i+1))
         }
     }
-    console.log(decimal)
-
     return decimal
 }
 
-console.log(convert([0,0,0,1]))
-
 function solution() {
 const binary = a.split("").map(Number)
-
-let max = convert(binary)
+let max = convert(binary);
 
     for (let i = 0; i < digit; i++) {
         if (binary[i] === 0) {
-            const numArr = binary
-            console.log(numArr)
+            const numArr = a.split("").map(Number)
             numArr[i] = 1
             let number = convert(numArr)
             max = Math.max(number,max)
         }
     }
-
     return  max
 }
 
 console.log(solution())
+// solution()
