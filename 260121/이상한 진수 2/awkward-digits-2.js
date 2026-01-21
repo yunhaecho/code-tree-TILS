@@ -9,6 +9,8 @@ const digit = a.length
 const convert = (num) => {
     let decimal = 0
 
+    if(num.length === 1) return 1
+
     for(let i = 0; i < digit;i++) {
         if(num[i]) {
             decimal += 2**(digit - (i+1))
@@ -18,17 +20,21 @@ const convert = (num) => {
 }
 
 function solution() {
+if(a.length === 1) return 0
 const binary = a.split("").map(Number)
-let max = convert(binary);
+let max = -100
 
     for (let i = 0; i < digit; i++) {
-        if (binary[i] === 0) {
             const numArr = a.split("").map(Number)
-            numArr[i] = 1
+            if(binary[i] === 1) {
+                numArr[i] = 0
+            } else {
+                numArr[i] = 1
+            }
             let number = convert(numArr)
             max = Math.max(number,max)
-        }
     }
+
     return  max
 }
 
