@@ -12,12 +12,13 @@ const calculate = (x1,y1,x2,y2) => {
 
 function solution() {
     let min = Number.MAX_SAFE_INTEGER;
+
     
     for(let i = 1; i < n-1; i++) {
         let jumpIdx = i
-        let cx = 0
-        let cy = 0
         let sum = 0
+        let [cx,cy] = arr[0]
+
         for(let j = 1; j < n; j++) {
             if(jumpIdx === j) continue
             let [nx, ny] = arr[j]
