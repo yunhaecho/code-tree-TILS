@@ -10,9 +10,9 @@ function solution () {
     let min = 1000
     for(let i = -2; i < n; i++) {
         sum = 0
-        let startRoom = (i + 1) % 5
+        let startRoom = (i + 1) % n
         for(let j = 0; j < n; j++) { 
-            const moveTo = (startRoom + 1) % 5
+            const moveTo = (startRoom + 1) % n
             const personnel = arr[moveTo] 
             sum += (personnel * j) 
             startRoom++
