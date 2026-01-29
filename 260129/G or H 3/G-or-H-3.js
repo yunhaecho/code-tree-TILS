@@ -20,7 +20,7 @@ function solution () {
 
   for(let i = 0; i < arr.length - k; i++) {
     let sum = 0
-    for(let j = i; j < i+k; j++) {        
+    for(let j = i; j < i+k+1; j++) {        
         if(arr[j] === "G") {
           sum += 1
         } else if(arr[j] === "H") {
