@@ -10,7 +10,7 @@ for (let i = 1; i <= n; i++) {
 
 // Please Write your code here.
 function solution () {
-  const arr = Array(20).fill(0)
+  const arr = Array(17).fill(0)
   for(let i = 0; i < n; i++) {
     const [x,c] = people[i]
     arr[x] = c
@@ -20,8 +20,7 @@ function solution () {
 
   for(let i = 0; i < arr.length - k; i++) {
     let sum = 0
-    for(let j = i; j < i+k; j++) {
-        if(arr[j] === 0 ) continue
+    for(let j = i; j < i+k; j++) {        
         if(arr[j] === "G") {
           sum += 1
         } else if(arr[j] === "H") {
