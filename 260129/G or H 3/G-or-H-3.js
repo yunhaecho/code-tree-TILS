@@ -17,13 +17,14 @@ function solution () {
   }
 
   let max = Number.MIN_SAFE_INTEGER
-  for(let i = 0; i < n-k; i++) {
+
+  for(let i = 0; i < arr.length - k; i++) {
     let sum = 0
-    console.log(`i = ${i}`)
-    for(let j = i; j < i+k+1; j++) {
+    for(let j = i; j < i+k; j++) {
+        if(arr[j] === 0 ) continue
         if(arr[j] === "G") {
           sum += 1
-        } else {
+        } else if(arr[j] === "H") {
           sum+=2
         }
     }
