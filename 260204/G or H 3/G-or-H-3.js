@@ -10,7 +10,7 @@ for (let i = 1; i <= n; i++) {
 
 // Please Write your code here.
 function solution () {
-  const arr = Array(10).fill(0)
+  const arr = Array(10001).fill(0)
   for(let i = 0; i < n; i++) {
     const [x,c] = people[i]
     arr[x] = c
