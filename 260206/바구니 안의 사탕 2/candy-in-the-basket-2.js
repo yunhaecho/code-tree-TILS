@@ -20,7 +20,7 @@ for(const [candy,position] of baskets) {
     candies[position] += candy
 }
 
-    for(let c = 0; c <= 100; c++) {
+    for(let c = 0; c <= maxPosition; c++) {
         let sum = 0
         let start = Math.max(0,c-k)
         const end = Math.min(400,c+k)
