@@ -11,7 +11,7 @@ for (let i = 0; i < n; i++) {
 }
 
 // Please Write your code here.
-const candies = Array(401).fill(0)//401
+const candies = Array(401).fill(0)
 let max = -1
 let maxPosition = -1
 
@@ -20,13 +20,15 @@ for(const [candy,position] of baskets) {
     candies[position] = candy
 }
 
-// for(let i = 0 ; i< candies.length; i++) {
-    for(let c = k; c <= maxPosition-k; c++) {
+    for(let c = 0; c <= maxPosition; c++) {
         let sum = 0
-        for(let z = c-k; z <= c+k; z++) {
+        let start = Math.max(0,c-k)
+        const end = Math.min(400,c+k)
+
+        for(let z = start; z <= end; z++) {
             sum += candies[z]
         }
         max = Math.max(sum,max)
     }
-// }
+
 console.log(max)
