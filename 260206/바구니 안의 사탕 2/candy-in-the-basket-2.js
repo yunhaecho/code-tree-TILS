@@ -17,10 +17,10 @@ let maxPosition = -1
 
 for(const [candy,position] of baskets) {
     maxPosition = Math.max(position,maxPosition)
-    candies[position] = candy
+    candies[position] += candy
 }
 
-    for(let c = 0; c <= maxPosition; c++) {
+    for(let c = 0; c <= 100; c++) {
         let sum = 0
         let start = Math.max(0,c-k)
         const end = Math.min(400,c+k)
