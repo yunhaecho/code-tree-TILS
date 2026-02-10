@@ -10,7 +10,7 @@ for (let i = 0; i < n; i++) {
 }
 
 // Please Write your code here.
-const letterInfo = Array(17).fill(0)
+const letterInfo = Array(101).fill(0)
 let maxPos = -1
 let size = 0
 let range = 0
