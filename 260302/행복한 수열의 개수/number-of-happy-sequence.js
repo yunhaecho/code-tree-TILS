@@ -8,6 +8,7 @@ const grid = input.slice(1, 1 + n).map(line => line.split(' ').map(Number));
 
 const row = (cnt,same) => {
     for (let row = 0; row < n; row++) {
+        same = 0
         for (let idx = 0; idx < n - 1; idx++) {
             if (grid[row][idx] === grid[row][idx + 1]) {
                 same++
@@ -25,6 +26,7 @@ const row = (cnt,same) => {
 
 const col = (cnt,same) => {
     for (let col = 0; col < n; col++) {
+        same = 0
         for (let idx = 0; idx < n - 1; idx++) {
             if (grid[idx][col] === grid[idx + 1][col]) {
                 same++
