@@ -6,7 +6,9 @@ const grid = input.slice(1, 1 + n).map(line => line.split(' ').map(Number));
 
 // Please Write your code here.
 
-const row = (cnt,same) => {
+const row = () => {
+        let cnt = 0
+    let same = 0
     for (let row = 0; row < n; row++) {
         same = 0
         for (let idx = 0; idx < n - 1; idx++) {
@@ -24,7 +26,10 @@ const row = (cnt,same) => {
     return cnt
 }
 
-const col = (cnt,same) => {
+const col = () => {
+    let cnt = 0
+    let same = 0
+    
     for (let col = 0; col < n; col++) {
         same = 0
         for (let idx = 0; idx < n - 1; idx++) {
@@ -44,14 +49,10 @@ const col = (cnt,same) => {
 }
 
 function checkHappy (dir) {
-    if (m === 1) return n * 2
-    let cnt = 0
-    let same = 0
-
     if(dir === "row") {
-        return row(cnt,same)
+        return row()
     } else {
-        return col(cnt,same)
+        return col()
     }
 }
 
