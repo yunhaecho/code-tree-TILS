@@ -12,29 +12,32 @@ const searchGrid = (N, M, dir) => {
     let same= 0
     let cnt = 0
 
-    for (let line = 0; line < N; line++) {
+    for (let row = 0; row < N; row++) {
         if (same >= M-1) cnt++
-        // same = 0
         for (let idx = 0; idx < N - 1; idx++) {
-            if (dir === "row") {
-                if (grid[line][idx] === grid[line][idx + 1]) {
-                    same++
-                } else {
-                    same=0
-                }
+            if (grid[row][idx] === grid[row][idx + 1]) {
+                same++
             } else {
-                if (grid[idx][line] === grid[idx + 1][line]) {
-                    same++
-                } else {
-                    same=0
-                }
+                same=0
+            }
+        }
+    }
+
+    same=0
+
+    for (let col = 0; col < N; col++) {
+        if (same >= M-1) cnt++
+        for (let idx = 0; idx < N - 1; idx++) {
+            if (grid[idx][col] === grid[idx + 1][col]) {
+                same++
+            } else {
+                same=0
             }
         }
     }
     return cnt
 }
 
-const row = searchGrid(n,m,"row");
-const col = searchGrid(n, m, "col");
+const result = searchGrid(n,m);
 
-console.log(row+col)
+console.log(result)
