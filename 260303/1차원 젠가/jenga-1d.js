@@ -7,11 +7,10 @@ const [s1, e1] = input[n + 1].split(' ').map(Number);
 const [s2, e2] = input[n + 2].split(' ').map(Number);
 
 // Please write your code here.
-const range = [[s1,e1],[s2,e2]]
 let tempBlocks = blocks
 
-for(const[s,e] of range) {
-   for(let i = s-1; i<e; i++) {
+const cutArray = (s,e) => {
+       for(let i = s-1; i<e; i++) {
     tempBlocks[i] = 0
    }
    const resize = []
@@ -21,8 +20,12 @@ for(const[s,e] of range) {
             resize.push(tempBlocks[j]);
         }
     }
-    tempBlocks = resize
+    tempBlocks = [...resize]
 }
+
+
+cutArray(s1,e1);
+cutArray(s2,e2);
 
 console.log(tempBlocks.length)
 
