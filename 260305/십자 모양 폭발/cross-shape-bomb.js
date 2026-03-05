@@ -10,32 +10,28 @@ const bombSize = grid[r - 1][c - 1]
 grid[r - 1][c - 1] = 0
 
 const dropNumber = (grid) => {
-    let arr = []
     const minCol = c - 1 - (bombSize - 1) < 0 ? 0 : c - 1 - (bombSize - 1)
-    for (let i = minCol; i < n; i++) {
-        for (let j = n - 1; j >= 0; j--) {
+    const maxCol = c - 1 + (bombSize - 1) >= n ? n - 1 : c - 1 + (bombSize - 1)
+
+    for (let i = minCol; i <= maxCol; i++) {
+        let arr = []
+        for (let j = 0; j < n; j++) {
             arr.push(grid[j][i])
         }
 
-        for (let j = 0; j < n; j++) {
-            if (arr[j] === 0) {
-                arr = arr.filter((num)=> num != arr[j])
-            }
+        arr = arr.filter((num) => num != 0)
+        const arrLen = arr.length
+        for (let j = 0; j < n - arrLen; j++) {
+            arr.unshift(0)
         }
 
-        for(let j = n-1; j >= 0; j--){
-            let num = arr.shift()
-            num = num === undefined ? 0 : num
+        for (let j = n - 1; j >= 0; j--) {
+            let num = arr.pop()
             grid[j][i] = num
         }
-
     }
     return grid
 }
-
-
-
-if (bombSize === 1) return dropNumber(grid);
 
 const dirX = [0, -1, 0, 1]//좌상우하
 const dirY = [-1, 0, 1, 0]
@@ -46,8 +42,8 @@ let y = c - 1
 for (let dir = 0; dir < 4; dir++) {
     for (let _ = 0; _ < bombSize - 1; _++) {
 
-        let curX = x - dirX[dir]
-        let curY = y - dirY[dir]
+        let curX = x + dirX[dir]
+        let curY = y + dirY[dir]
 
         if (0 <= curX && curX < n && 0 <= curY && curY < n) {
             grid[curX][curY] = 0
@@ -62,7 +58,8 @@ for (let dir = 0; dir < 4; dir++) {
 
 const result = dropNumber(grid);
 
-for(let row of result) {
+for (let row of result) {
+
     console.log(row.join(" "))
 }
 
