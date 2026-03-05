@@ -18,7 +18,8 @@ const dropNumber = (grid) => {
 
         arr = arr.filter((num) => num != 0)
 
-        while( arr.length < n){
+        const arrLen = arr.length
+        for (let j = 0; j < n - arrLen; j++) {
             arr.unshift(0)
         }
 
