@@ -34,16 +34,23 @@ const dirX = [0, -1, 0, 1]//좌상우하
 const dirY = [-1, 0, 1, 0]
 //0으로 바꾸기 작업
 
-for (let dir = 0; dir < 4; dir++) {
-    for (let dist = 1; dist < bombSize; dist++) {
+let x = r-1
+let y = c-1
 
-        let curX = (r - 1) + dirX[dir] * dist
-        let curY = (c - 1) + dirY[dir] * dist
+for (let dir = 0; dir < 4; dir++) {
+    for (let _ = 1; _ < bombSize; _++) {
+
+        let curX = x + dirX[dir]
+        let curY = y + dirY[dir]
 
         if (0 <= curX && curX < n && 0 <= curY && curY < n) {
             grid[curX][curY] = 0
         }
+        x = curX
+        y = curY
     }
+    x = r-1
+    y = c-1
 }
 
 const result = dropNumber(grid);
