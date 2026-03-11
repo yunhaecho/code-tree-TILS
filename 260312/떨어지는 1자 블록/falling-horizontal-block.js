@@ -21,8 +21,6 @@ function solution() {
                 isEnd = true;
                 break;
             }
-
-
         }
 
         if (isEnd) {
@@ -30,6 +28,12 @@ function solution() {
                 grid[i - 1][j] = 1
             }
             break;
+        }
+    }
+
+    if (isEnd === false) {
+        for (let j = k - 1; j < k + m - 1; j++) {
+            grid[n - 1][j] = 1
         }
     }
 
