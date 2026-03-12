@@ -18,8 +18,6 @@ const dirY = [0, 0, -1, 1]
 
 let x = 0
 let y = 0
-let curX = 0
-let curY = 0
 let maxX = 0
 let maxY = 0
 let times = t
@@ -29,10 +27,8 @@ while (times > 0) {
     let next = Array(n).fill(0).map(() => Array(n).fill(0))
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
-            if (curr[i][j])  {
+            if (curr[i][j]) {
                 let max = 0
-                curX = i
-                curY = j
 
                 for (let k = 0; k < 4; k++) {
                     x = i + dirX[k]
@@ -46,16 +42,20 @@ while (times > 0) {
                         }
                     }
                 }
-
-                next[maxX][maxY] = next[maxX][maxY] >= 1 ? 0 : 1
-                // for (let i = 0; i < n; i++) {
-                //     console.log(next[i].join(" "))
-                // }
-                // console.log()
+                next[maxX][maxY]++
             }
         }
     }
-    curr = structuredClone(next)
+
+    let nextCurr = Array(n).fill(0).map(() => Array(n).fill(0));
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if (next[i][j] === 1) {
+                nextCurr[i][j] = 1;
+            }
+        }
+    }
+    curr = nextCurr;
     times--
 }
 
